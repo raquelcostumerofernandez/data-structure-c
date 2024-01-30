@@ -9,6 +9,7 @@
 #include "linkedList.h"
 
 Node* createNode(int data) {
+    return NULL;
 }
 
 void insertAtBeginning(Node** head, int data) {
@@ -46,6 +47,10 @@ int main() {
     // Test createNode and insertAtEnd
     printf("Creating a node with 30 and inserting at end:\n");
     Node *newNode = createNode(30);
+    if (!newNode) {
+        printf("newNode is NULL\n");
+        return 84;
+    }
     insertAtEnd(&head, newNode->data);
     printList(head);
 
