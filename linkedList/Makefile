@@ -5,26 +5,26 @@
 ## Makefile
 ##
 
-SRC	=	$(wildcard ./*.c)\
+CC = gcc
+
+SRC	=	$(wildcard *.c)\
 
 OBJ = $(SRC:.c=.o)
 
-TESTS_SRC = tests.c
-
-TESTS = $(addprefix tests/,$(TESTS_SRC))
+TESTS_SRC = test/tests.c
 
 CFLAGS = -std=gnu17 -Wall -Wextra -g3
 
 CRITERION = --coverage -lcriterion
 
-NAME = libstring.a
+NAME = linkedList
 
 TESTS_NAME = unit_tests
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ar rc $(NAME) $(OBJ)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
 
 clean:
 	rm -f *.o

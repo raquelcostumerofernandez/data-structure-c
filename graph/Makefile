@@ -6,30 +6,46 @@
 ##
 
 CC = gcc
-CFLAGS = -Wall -g
 
-MAIN = main
-TEST = unit_tests
+SRC	=	$(wildcard *.c)\
 
-SRCS = graph.c
-TEST_SRCS = test.c
+OBJ = $(SRC:.c=.o)
 
+TESTS_SRC = test/tests.c
 
-OBJS = $(SRCS:.c=.o)
-TEST_OBJS = $(TEST_SRCS:.c=.o)
+CFLAGS = -std=gnu17 -Wall -Wextra -g3
 
-all: $(MAIN)
+CRITERION = --coverage -lcriterion
 
-$(MAIN): $(OBJS)
-	$(CC) $(CFLAGS) -o $(MAIN) $(OBJS)
+NAME = graph
 
-$(TEST): $(TEST_OBJS)
-	$(CC) $(CFLAGS) -o $(TEST) $(TEST_OBJS)
+TESTS_NAME = unit_tests
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $<
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
 
 clean:
-	rm -f $(MAIN) $(TEST) $(OBJS) $(TEST_OBJS)
+	rm -f *.o
+	rm -f *.gcda
+	rm -f *.gcno
 
-.PHONY: all clean
+fclean: clean
+	rm -f $(NAME)
+	rm -f $(TESTS_NAME)
+
+re: fclean all
+	$(MAKE) clean
+
+tests_clean: clean
+	rm -f $(TESTS_NAME)
+
+tests_comp: clean
+	gcc $(CRITERION) $(CFLAGS) -o $(TESTS_NAME) $(SRC) $(TESTS)
+
+tests_run: tests_comp
+	./$(TESTS_NAME)
+
+tests_cover: tests_run
+	gcovr -e tests/

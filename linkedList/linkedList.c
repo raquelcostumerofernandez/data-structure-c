@@ -9,11 +9,9 @@
 #include "linkedList.h"
 
 Node* createNode(int data) {
-
 }
 
 void insertAtBeginning(Node** head, int data) {
-
 }
 
 void insertAtEnd(Node** head, int data) {
