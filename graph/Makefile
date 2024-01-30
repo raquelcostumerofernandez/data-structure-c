@@ -12,7 +12,7 @@ MAIN = main
 TEST = unit_tests
 
 SRCS = graph.c
-TEST_SRCS = test.c other_source_file.c
+TEST_SRCS = test.c
 
 
 OBJS = $(SRCS:.c=.o)

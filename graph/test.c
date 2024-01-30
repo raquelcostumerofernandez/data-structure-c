@@ -17,7 +17,3 @@ Test(graph, test_addEdge) {
     cr_assert_eq(graph->array[0].head->dest, 1, "Edge destination should be correct");
     freeGraph(graph);
 }
-
-int main(int argc, char *argv[]) {
-    criterion_test_main(argc, argv);
-}
