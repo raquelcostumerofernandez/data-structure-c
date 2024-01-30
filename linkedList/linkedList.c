@@ -30,37 +30,3 @@ void printList(Node* head) {
 void freeList(Node* head) {
 
 }
-
-int main() {
-    Node *head = NULL;
-
-    // Test insertAtBeginning
-    printf("Inserting 10 at the beginning:\n");
-    insertAtBeginning(&head, 10);
-    printList(head);
-
-    // Test insertAtEnd
-    printf("Inserting 20 at the end:\n");
-    insertAtEnd(&head, 20);
-    printList(head);
-
-    // Test createNode and insertAtEnd
-    printf("Creating a node with 30 and inserting at end:\n");
-    Node *newNode = createNode(30);
-    if (!newNode) {
-        printf("newNode is NULL\n");
-        return 84;
-    }
-    insertAtEnd(&head, newNode->data);
-    printList(head);
-
-    // Test deleteNode
-    printf("Deleting node with data 10:\n");
-    deleteNode(&head, 10);
-    printList(head);
-
-    // Free the list
-    freeList(head);
-
-    return 0;
-}

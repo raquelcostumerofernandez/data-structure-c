@@ -24,7 +24,7 @@ TESTS_NAME = unit_tests
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
+	ar rc $(NAME) $(OBJ)
 
 clean:
 	rm -f *.o
