@@ -8,7 +8,7 @@
 #include "graph.h"
 
 Graph* createGraph(int numVertices) {
-
+    return NULL;
 }
 void addEdge(Graph* graph, int src, int dest) {
 
@@ -23,6 +23,11 @@ void freeGraph(Graph* graph) {
 int main() {
     int numVertices = 4;
     Graph *graph = createGraph(numVertices);
+
+    if (!graph) {
+        printf("graph is NULL\n");
+        return 84;
+    }
 
     // Add edges to the graph
     addEdge(graph, 0, 1);

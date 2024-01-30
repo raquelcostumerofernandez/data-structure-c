@@ -9,19 +9,19 @@
 #include "tree.h"
 
 TreeNode* createNode(int data) {
-
+    return NULL;
 }
 
 TreeNode* insertNode(TreeNode* root, int data) {
-
+    return NULL;
 }
 
 TreeNode* deleteNode(TreeNode* root, int data) {
-
+    return NULL;
 }
 
 TreeNode* search(TreeNode* root, int data) {
-
+    return NULL;
 }
 
 void inorderTraversal(TreeNode* root) {
@@ -51,6 +51,10 @@ int main() {
     insertNode(root, 60);
     insertNode(root, 80);
 
+    if (!root) {
+        printf("root is NULL\n");
+        return 84;
+    }
     printf("Inorder traversal of the given tree:\n");
     inorderTraversal(root);
 
@@ -62,6 +66,10 @@ int main() {
 
     printf("\nDelete 20\n");
     root = deleteNode(root, 20);
+    if (!root) {
+        printf("root is NULL\n");
+        return 84;
+    }
     printf("Inorder traversal after deleting 20:\n");
     inorderTraversal(root);
 
