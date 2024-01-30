@@ -11,7 +11,7 @@ CFLAGS = -Wall -g
 MAIN = main
 TEST = unit_tests
 
-SRCS = main.c other_source_file.c
+SRCS = tree.c
 TEST_SRCS = test.c other_source_file.c
 
 
