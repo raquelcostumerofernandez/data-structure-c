@@ -1,6 +1,6 @@
 #include <criterion/criterion.h>
 #include <criterion/redirect.h>
-#include "graph.h"
+#include "../graph.h"
 
 Test(graph, test_createGraph) {
     int numVertices = 5;

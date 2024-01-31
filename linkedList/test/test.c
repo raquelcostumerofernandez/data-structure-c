@@ -1,6 +1,6 @@
 #include <criterion/criterion.h>
 #include <criterion/redirect.h>
-#include "linkedList.h"
+#include "../linkedList.h"
 
 Test(linked_list, test_createNode) {
     Node *node = createNode(10);

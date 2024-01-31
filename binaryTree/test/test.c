@@ -7,7 +7,7 @@
 
 #include <criterion/criterion.h>
 #include <criterion/redirect.h>
-#include "tree.h"
+#include "../tree.h"
 
 Test(binary_tree, test_createNode) {
     TreeNode *node = createNode(10);

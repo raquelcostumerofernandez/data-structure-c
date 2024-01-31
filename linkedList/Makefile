@@ -11,20 +11,18 @@ SRC	=	$(wildcard *.c)\
 
 OBJ = $(SRC:.c=.o)
 
-TESTS_SRC = test/tests.c
+TESTS_SRC = test/test.c
 
-CFLAGS = -std=gnu17 -Wall -Wextra -g3
+CFLAGS = -std=gnu17 -Wall -Wextra -Werror -g3
 
 CRITERION = --coverage -lcriterion
 
 NAME = linkedList
 
-TESTS_NAME = unit_tests
-
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ar rc $(NAME) $(OBJ)
+	$(CC) $(CRITERION) $(CFLAGS) -o $(NAME) $(OBJ) $(TESTS_SRC)
 
 clean:
 	rm -f *.o
@@ -38,14 +36,8 @@ fclean: clean
 re: fclean all
 	$(MAKE) clean
 
-tests_clean: clean
-	rm -f $(TESTS_NAME)
-
-tests_comp: clean
-	gcc $(CRITERION) $(CFLAGS) -o $(TESTS_NAME) $(SRC) $(TESTS)
-
-tests_run: tests_comp
-	./$(TESTS_NAME)
+tests_run: all
+	./$(NAME)
 
 tests_cover: tests_run
 	gcovr -e tests/
