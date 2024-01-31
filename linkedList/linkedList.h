@@ -17,8 +17,8 @@ typedef struct Node {
 Node* createNode(int data);
 void insertAtBeginning(Node** head, int data);
 void insertAtEnd(Node** head, int data);
-void deleteNode(Node** head, int key);
 void printList(Node* head);
+void deleteNode(Node** head, int key);
 void freeList(Node* head);
 
 #endif /* !LINKEDLIST_H_ */

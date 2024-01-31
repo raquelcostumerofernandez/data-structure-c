@@ -44,3 +44,51 @@ Test(binary_tree, test_search) {
     cr_assert_not_null(searchResult, "Search should find the inserted node");
     freeTree(root);
 }
+
+Test(binary_tree, test_inorderTraversal) {
+    TreeNode *root = NULL;
+    root = insertNode(root, 25);
+    root = insertNode(root, 10);
+    root = insertNode(root, 30);
+    root = insertNode(root, 5);
+    root = insertNode(root, 15);
+    root = insertNode(root, 35);
+    cr_redirect_stdout();
+    inorderTraversal(root);
+    cr_assert_stdout_eq_str("5 10 15 25 30 35 ", "inorderTraversal() should print the tree in order");
+    freeTree(root);
+}
+
+Test(binary_tree, test_preorderTraversal) {
+    TreeNode *root = NULL;
+    root = insertNode(root, 25);
+    root = insertNode(root, 10);
+    root = insertNode(root, 30);
+    root = insertNode(root, 5);
+    root = insertNode(root, 15);
+    root = insertNode(root, 35);
+    cr_redirect_stdout();
+    preorderTraversal(root);
+    cr_assert_stdout_eq_str("25 10 5 15 30 35 ", "preorderTraversal() should print the tree in preorder");
+    freeTree(root);
+}
+
+Test(binary_tree, test_postorderTraversal) {
+    TreeNode *root = NULL;
+    root = insertNode(root, 25);
+    root = insertNode(root, 10);
+    root = insertNode(root, 30);
+    root = insertNode(root, 5);
+    root = insertNode(root, 15);
+    root = insertNode(root, 35);
+    cr_redirect_stdout();
+    postorderTraversal(root);
+    cr_assert_stdout_eq_str("5 15 10 35 30 25 ", "postorderTraversal() should print the tree in postorder");
+    freeTree(root);
+}
+
+Test(binary_tree, test_freeTree) {
+    TreeNode *root = NULL;
+    root = insertNode(root, 25);
+    freeTree(root);
+}
