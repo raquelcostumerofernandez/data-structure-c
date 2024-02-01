@@ -5,12 +5,19 @@
 ** linkedList.c
 */
 
+#include <stdlib.h>
 #include <stddef.h>
 #include "linkedList.h"
+#include <stdio.h>
 
 Node* createNode(int data) {
-    (void)data;
-    return NULL;
+    Node *head = malloc(sizeof(data));
+
+    if (head == NULL)
+        return NULL;
+    head->data = data;
+    head->next = NULL;
+    return head;
 }
 
 void insertAtBeginning(Node** head, int data) {
@@ -32,11 +39,14 @@ void deleteNode(Node** head, int key) {
 }
 
 void printList(Node* head) {
-    (void)head;
+    while (head != NULL) {
+        printf("%d\n", head->data);
+        head = head->next;
+    }
     return;
 }
 
 void freeList(Node* head) {
-    (void)head;
+    free(head);
     return;
 }
