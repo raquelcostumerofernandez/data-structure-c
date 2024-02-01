@@ -21,15 +21,27 @@ Node* createNode(int data) {
 }
 
 void insertAtBeginning(Node** head, int data) {
-    (void)head;
-    (void)data;
+{
+    struct Node *ptr = (struct Node **) malloc(sizeof(struct Node));
+    ptr->data = data;
+    ptr->next = head;
     return;
 }
+}
 
-void insertAtEnd(Node** head, int data) {
-    (void)head;
-    (void)data;
-    return;
+void insertAtEnd(Node** head, int data) 
+{
+    struct Node *ptr = (struct Node *) malloc(sizeof(struct Node));
+    ptr->data = data;
+    struct Node *p = head;
+
+    while (p->next != NULL)
+    {
+        p = p->next;
+    }
+    p->data = ptr;
+    ptr->next = NULL;
+    return head;
 }
 
 void deleteNode(Node** head, int key) {
